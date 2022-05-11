@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "973985605184",
+    "project_id": "fir-topic-cc037",
+    "storage_bucket": "fir-topic-cc037.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973985605184:android:97256261107f81a69f61a5",
+        "android_client_info": {
+          "package_name": "com.reactnativedefaultapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973985605184-99e8vraod825gsnp65s3gs1jku40nsdg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reactnativedefaultapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "973985605184-atf8ueaj79osgu9s2i3dr4j43brc6v4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqL8Mg5-EALvP7ANyVOFpZlvh_qnQ5VnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973985605184-atf8ueaj79osgu9s2i3dr4j43brc6v4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
