@@ -1,75 +1,45 @@
-import {StyleSheet, Text, View, Dimensions, Image} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Alert} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import MapView, {PROVIDER_GOOGLE, Marker, Callout} from 'react-native-maps';
-import Geolocation from 'react-native-geolocation-service';
+import messaging from '@react-native-firebase/messaging';
+import axios from 'axios';
+import {firebaseService} from './utils/api';
 
 const App = () => {
-  const {width, height} = Dimensions.get('window');
-
-  // console.log(width);
-  // console.log(height);
-
-  const ASPECT_RATIO = width / height;
-  const LATITUDE = -7.3114488;
-  const LONGITUDE = 112.7822867;
-  const LATITUDE_DELTA = 0.002;
-  const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-  // console.log(LONGITUDE_DELTA);
-  const SPACE = 0.01;
-
-  const [currentPosition, setCurrentPosition] = useState({
-    latitude: LATITUDE,
-    longitude: LONGITUDE,
-    latitudeDelta: LATITUDE_DELTA,
-    longitudeDelta: LONGITUDE_DELTA,
-  });
-
   useEffect(() => {
-    Geolocation.getCurrentPosition(
-      position => {
-        // alert(JSON.stringify(position))
-        const {latitude, longitude} = position.coords;
-        setCurrentPosition({
-          ...currentPosition,
-          latitude,
-          longitude,
-        });
-      },
-      error => alert(error.message),
-      {timeout: 2000, maximumAge: 1000},
-    );
-  });
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+    });
+
+    return unsubscribe;
+  }, []);
 
   return (
     <View>
-      <Text>App</Text>
-      <MapView
-        style={{width: 300, height: 300}}
-        provider={PROVIDER_GOOGLE}
-        region={currentPosition}
-        showsUserLocation>
-        <Marker
-          onPress={() => alert('Marker Hit')}
-          coordinate={{
-            latitude: LATITUDE,
-            longitude: LONGITUDE,
-          }}
-          title="Test Map Title"
-          description="Test Map Desc">
-          <Callout tooltip>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: 'rgba(255,255,255,0.7)',
-                paddingHorizontal: 18,
-                paddingVertical: 12,
-                borderRadius: 20,
-              }}>
-              <Text>Test Map</Text>
-            </View>
-          </Callout>
-        </Marker>
-      </MapView>
+      <TouchableOpacity
+        onPress={async () => {
+          console.log(await messaging().getToken());
+        }}>
+        <Text>Remote Notification Foreground</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={async () => {
+          const body = {
+              to: 'coY4PZ5pQcyjABfYyaHcJS:APA91bGeodKUFs3zXGd7EnHMXWDBHfVnqUsLBfAjP0AnxvhDYmmaH5TmME-fkj4LH2PDkwIoHdDG7C71NhjnO4ogHSLKNMS09eFI4oshkJiz6koAprls1DN-AVruRUHlaSMJnLPG0pJ_',
+              notification: {
+                body: 'This is an FCM notification message!',
+                title: 'FCM Message',
+              },
+          };
+
+          const res = await axios.post(`${firebaseService}`, body, {
+            headers: {
+              Authorization: `Bearer AAAA4sYQ5kA:APA91bFicLBZqOTh-SpBtuNB6HZCBl2tE5HQnQySQGtmJLtnyGqCFgABJzZhvr-jXmMMiEiXe33zr0Ec6ahPJvjotPHkLNJNCjP_ZhNeBjXZUpsFsoiAFCeSi-Z217ExH2-j3qE1UKgO`,
+            },
+          });
+          console.log(res);
+        }}>
+        <Text>aaa</Text>
+      </TouchableOpacity>
     </View>
   );
 };
