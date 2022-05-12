@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BinarChallengeChapter6</string>
+    <string name="facebook_app_id">285816963764870</string>
+    <string name="facebook_client_token">d91f0c763dfdcac951f721827576969f</string>
 </resources>
