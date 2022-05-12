@@ -24,6 +24,22 @@ const App = () => {
     longitudeDelta: LONGITUDE_DELTA,
   });
 
+  useEffect(() => {
+    Geolocation.getCurrentPosition(
+      position => {
+        // alert(JSON.stringify(position))
+        const {latitude, longitude} = position.coords;
+        setCurrentPosition({
+          ...currentPosition,
+          latitude,
+          longitude,
+        });
+      },
+      error => alert(error.message),
+      {timeout: 2000, maximumAge: 1000},
+    );
+  });
+
   return (
     <View>
       <Text>App</Text>

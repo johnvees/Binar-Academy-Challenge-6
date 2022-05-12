@@ -10,7 +10,7 @@ buildscript {
         targetSdkVersion = 31
         kotlin_version = '1.5.10'
         // supportLibVersion = "31.0.0"
-        // playServiceVersion = "18.0.0"
+        playServiceVersion = "18.0.0"
         // androidMapsUtilsVersion = "1.2.1"
 
         if (System.properties['os.arch'] == "aarch64") {
