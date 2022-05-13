@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import MapView, {PROVIDER_GOOGLE, Marker, Callout} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 
-const Geolocation = () => {
+const Geo = () => {
   const {width, height} = Dimensions.get('window');
 
   // console.log(width);
@@ -74,6 +74,6 @@ const Geolocation = () => {
   );
 };
 
-export default Geolocation;
+export default Geo;
 
 const styles = StyleSheet.create({});

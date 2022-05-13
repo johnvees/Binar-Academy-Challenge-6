@@ -1,11 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import Root from './routes';
 
-const App = () => {
-  return <Root />;
+const Register = () => {
+  return (
+    <View>
+      <Text>Register</Text>
+    </View>
+  );
 };
 
-export default App;
+export default Register;
 
 const styles = StyleSheet.create({});

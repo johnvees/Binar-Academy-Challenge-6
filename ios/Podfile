@@ -21,6 +21,10 @@ target 'BinarChallengeChapter6' do
 
   pod 'TouchID', :path => '../node_modules/react-native-touch-id'
 
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'BinarChallengeChapter6Tests' do
     inherit! :complete
     # Pods for testing
