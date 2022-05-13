@@ -1,2 +1,4 @@
 API Key Google
 AIzaSyC_3mvLugfP38cl4CSPbYbMNocpjoCM3vc
+
+keytool -list -v -keystore ./mykeystore.keystore -alias mykeyalias
