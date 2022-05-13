@@ -25,7 +25,7 @@ const MainApp = () => {
 const MainStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="MainApp"
+      initialRouteName="Login"
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="MainApp" component={MainApp} />
       <Stack.Screen name="Login" component={Login} />

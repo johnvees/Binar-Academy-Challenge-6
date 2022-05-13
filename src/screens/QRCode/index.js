@@ -1,14 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {CameraScreen, CameraType} from 'react-native-camera-kit';
-import {useIsFocused, useNavigation} from '@react-navigation/native';
-
-import AfterSuccess from './AfterSuccess';
+import {useNavigation} from '@react-navigation/native';
 
 const QRCode = () => {
   const navigation = useNavigation();
 
-  const isFocused = useIsFocused;
   const onReadCode = data => {
     alert(data.nativeEvent.codeStringValue);
     navigation.navigate('AfterSuccess', {
