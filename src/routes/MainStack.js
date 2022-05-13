@@ -24,19 +24,12 @@ const MainApp = () => {
 
 const MainStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
-      <Stack.Screen
-        name="MainApp"
-        component={MainApp}
-      />
-      <Stack.Screen
-        name="Login"
-        component={Login}
-      />
-      <Stack.Screen
-        name="Register"
-        component={Register}
-      />
+    <Stack.Navigator
+      initialRouteName="MainApp"
+      screenOptions={{headerShown: false}}>
+      <Stack.Screen name="MainApp" component={MainApp} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );
 };
