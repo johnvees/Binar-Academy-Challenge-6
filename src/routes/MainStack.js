@@ -3,7 +3,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomTabNavigator} from '../components';
-import {Home, Geo, QRCode, Login, Register} from '../screens';
+import {Home, Geo, QRCode, Login, Register, AfterSuccess} from '../screens';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,6 +30,7 @@ const MainStack = () => {
       <Stack.Screen name="MainApp" component={MainApp} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
+      <Stack.Screen name="AfterSuccess" component={AfterSuccess} />
     </Stack.Navigator>
   );
 };
