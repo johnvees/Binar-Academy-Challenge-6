@@ -8,6 +8,7 @@ import {
 import {AccessToken, LoginButton} from 'react-native-fbsdk-next';
 import {ms} from 'react-native-size-matters';
 import {firebase} from '@react-native-firebase/auth';
+import TouchID from 'react-native-touch-id';
 
 import {Button} from '../../components';
 
@@ -65,7 +66,19 @@ const Login = ({navigation}) => {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         console.log('user: ', user);
-        navigation.replace('MainApp');
+        TouchID.authenticate(
+          'to demo this react-native component',
+          // optionalConfigObject,
+        )
+          .then(success => {
+            console.log(success);
+            alert('Authenticated Successfully');
+            navigation.replace('MainApp');
+          })
+          .catch(error => {
+            console.log(error);
+            alert('Authentication Failed');
+          });
       }
     });
   }, []);

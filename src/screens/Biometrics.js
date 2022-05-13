@@ -14,10 +14,11 @@ const Biometrics = () => {
       optionalConfigObject,
     )
       .then(success => {
-        // alert(success);
+        console.log(success);
         alert('Authenticated Successfully');
       })
       .catch(error => {
+        console.log(error);
         alert('Authentication Failed');
       });
   };
